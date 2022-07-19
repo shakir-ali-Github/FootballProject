@@ -2,7 +2,6 @@ package com.qa.footy.entity;
 
 import java.util.Objects;
 
-import javax.persistence.Column;
 import javax.persistence.Entity;
 import javax.persistence.GeneratedValue;
 import javax.persistence.GenerationType;
@@ -11,42 +10,37 @@ import javax.persistence.Id;
 @Entity
 public class Footballer {
 	
-	@Id // PK
-	@GeneratedValue(strategy = GenerationType.IDENTITY) // AI
+	@Id 
+	@GeneratedValue(strategy = GenerationType.IDENTITY) 
 	private Integer id;
 	
-	@Column(name = "footballerName", nullable = false, unique = true)
-	private String firstname;
-	
-	private String surname;
-
-	private int age;
+	private String name;
 	
 	private String position;
 	
-	private long phonenumber;
+	private String email;
+	
+	private int age;
 
 	public Footballer() {
 		super();
 	}
 	
-	public Footballer(String firstname, String surname, int age, String position, long phonenumber) {
+	public Footballer(String name, String position, String email, int age) {
 		super();
-		this.firstname = firstname;
-		this.surname = surname;
-		this.age = age;
+		this.name = name;
 		this.position = position;
-		this.phonenumber = phonenumber;
+		this.email = email;
+		this.age = age;
 	}
 	
-	public Footballer(Integer id, String firstname, String surname, int age, String position, long phonenumber) {
+	public Footballer(Integer id, String name, String position, String email, int age) {
 		super();
 		this.id = id;
-		this.firstname = firstname;
-		this.surname = surname;
-		this.age = age;
+		this.name = name;
 		this.position = position;
-		this.phonenumber = phonenumber;
+		this.email = email;
+		this.age = age;
 	}
 
 	public Integer getId() {
@@ -57,28 +51,12 @@ public class Footballer {
 		this.id = id;
 	}
 
-	public String getFirstname() {
-		return firstname;
+	public String getName() {
+		return name;
 	}
 
-	public void setFirstname(String firstname) {
-		this.firstname = firstname;
-	}
-
-	public String getSurname() {
-		return surname;
-	}
-
-	public void setSurname(String surname) {
-		this.surname = surname;
-	}
-
-	public int getAge() {
-		return age;
-	}
-
-	public void setAge(int age) {
-		this.age = age;
+	public void setName(String name) {
+		this.name = name;
 	}
 
 	public String getPosition() {
@@ -89,17 +67,25 @@ public class Footballer {
 		this.position = position;
 	}
 
-	public long getPhonenumber() {
-		return phonenumber;
+	public String getEmail() {
+		return email;
 	}
 
-	public void setPhonenumber(long phonenumber) {
-		this.phonenumber = phonenumber;
+	public void setEmail(String email) {
+		this.email = email;
+	}
+
+	public int getAge() {
+		return age;
+	}
+
+	public void setAge(int age) {
+		this.age = age;
 	}
 
 	@Override
 	public int hashCode() {
-		return Objects.hash(age, firstname, id, phonenumber, position, surname);
+		return Objects.hash(age, email, id, name, position);
 	}
 
 	@Override
@@ -111,16 +97,16 @@ public class Footballer {
 		if (getClass() != obj.getClass())
 			return false;
 		Footballer other = (Footballer) obj;
-		return age == other.age && Objects.equals(firstname, other.firstname) && Objects.equals(id, other.id)
-				&& phonenumber == other.phonenumber && Objects.equals(position, other.position)
-				&& Objects.equals(surname, other.surname);
+		return age == other.age && Objects.equals(email, other.email) && Objects.equals(id, other.id)
+				&& Objects.equals(name, other.name) && Objects.equals(position, other.position);
 	}
 
 	@Override
 	public String toString() {
-		return "Footballer [id=" + id + ", firstname=" + firstname + ", surname=" + surname + ", age=" + age
-				+ ", position=" + position + ", phonenumber=" + phonenumber + "]";
+		return "Footballer [id=" + id + ", name=" + name + ", position=" + position + ", email=" + email + ", age="
+				+ age + "]";
 	}
 
+	
 
 }

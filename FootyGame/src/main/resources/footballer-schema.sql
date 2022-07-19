@@ -1,9 +1,8 @@
 DROP TABLE IF EXISTS `footballer` CASCADE;
-create table `fish` (
+create table `footballer` (
 	`id` INTEGER UNIQUE PRIMARY KEY AUTO_INCREMENT,
 	`age` INTEGER,
-	`phonenumber` LONG,
-	`footballer_firstname` VARCHAR(255) NOT NULL, 
-	`footballer_surname` VARCHAR(255) NOT NULL,
-	`position` VARCHAR(255)
+	`footballer_name` VARCHAR(255) NOT NULL, 
+	`position` VARCHAR(255),
+	`email` VARCHAR(255)
 );

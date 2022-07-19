@@ -24,12 +24,12 @@ import com.qa.footy.service.FootballerService;
 public class FootballerController {
 	
 	@Autowired
-	private FootballerService service; // dependency
+	private FootballerService service; 
 
 
 	@GetMapping("/demoFootballer")
 	public Footballer getDemoFootballer() {
-		return new Footballer("Shak", "Ali", Integer.MAX_VALUE, "CDM", Long.MAX_VALUE);
+		return new Footballer(1, "Shak", "CDM", "Shak@email.com", 24);
 	}
 
 	@GetMapping("/getFootballer/{id}")
@@ -42,23 +42,22 @@ public class FootballerController {
 		return this.service.getAll();
 	}
 
-	@GetMapping("/getFootballerByName/{firstname}")
-	public Footballer getFootballerByName(@PathVariable String firstname) {
-		return this.service.findByName(firstname);
+	@GetMapping("/getFootballerByName/{name}")
+	public Footballer getFootballerByName(@PathVariable String name) {
+		return this.service.findByName(name);
 	}
 
 	@PostMapping("/createFootballer")
-	public ResponseEntity<Footballer> create(@RequestBody Footballer baller) {
-		System.out.println("Created: " + baller);
-		Footballer created = this.service.create(baller);
+	public ResponseEntity<Footballer> create(@RequestBody Footballer footballer) {
+		System.out.println("Created: " + footballer);
+		Footballer created = this.service.create(footballer);
 
 		return new ResponseEntity<Footballer>(created, HttpStatus.CREATED);
 	}
 
 	@PatchMapping("/updateFootballer/{id}")
-	public Footballer update(@PathVariable("id") int id, @PathParam("firstname") String firstname,
-			@PathParam("surname") String surname, @PathParam("age") Integer age, @PathParam("position") String position, @PathParam("phonenumber") Long phonenumber) {
-		return this.service.update(id, firstname, surname, age, position, phonenumber);
+	public Footballer update(@PathVariable("id") int id, @PathParam("name") String name, @PathParam("position") String position, @PathParam("email") String email, @PathParam("age") Integer age) {
+		return this.service.update(id, name, position, email, age);
 	}
 
 	// id = 4494

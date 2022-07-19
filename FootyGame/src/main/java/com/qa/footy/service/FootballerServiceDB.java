@@ -27,23 +27,21 @@ public class FootballerServiceDB implements FootballerService {
 	}
 
 	@Override
-	public Footballer create(Footballer baller) {
-		return this.repo.save(baller);
+	public Footballer create(Footballer footballer) {
+		return this.repo.save(footballer);
 	}
 
 	@Override
-	public Footballer update(int id, String firstname, String surname, Integer age, String position, Long phonenumber) {
+	public Footballer update(int id, String name, String position, String email, Integer age) {
 		Footballer toUpdate = this.getById(id);
-		if (firstname != null)
-			toUpdate.setFirstname(firstname);
-		if (surname != null)
-			toUpdate.setSurname(surname);
-		if (age != null)
-			toUpdate.setAge(age);
+		if (name != null)
+			toUpdate.setName(name);
 		if (position != null)
 			toUpdate.setPosition(position);
-		if (phonenumber != null)
-			toUpdate.setPhonenumber(phonenumber);
+		if (email != null)
+			toUpdate.setEmail(email);
+		if (age != null)
+			toUpdate.setAge(age);
 		return this.repo.save(toUpdate);
 	}
 
@@ -53,8 +51,8 @@ public class FootballerServiceDB implements FootballerService {
 	}
 
 	@Override
-	public Footballer findByName(String firstname) {
-		return this.repo.findByNameStartingWithIgnoreCase(firstname);
+	public Footballer findByName(String name) {
+		return this.repo.findByNameStartingWithIgnoreCase(name);
 	}
 
 }

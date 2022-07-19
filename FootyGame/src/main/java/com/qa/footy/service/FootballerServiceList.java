@@ -11,48 +11,46 @@ import com.qa.footy.entity.Footballer;
 
 public class FootballerServiceList implements FootballerService {
 	
-	private List<Footballer> ballers = new ArrayList<>();
+	private List<Footballer> footballers = new ArrayList<>();
 	
 	@Override
 	public Footballer getById(int id) {
-		return this.ballers.get(id);
+		return this.footballers.get(id);
 	}
 
 	@Override
 	public List<Footballer> getAll() {
-		return this.ballers;
+		return this.footballers;
 	}
 
 	@Override
-	public Footballer create(Footballer baller) {
-		this.ballers.add(baller);
-		return this.ballers.get(this.ballers.size() - 1);
+	public Footballer create(Footballer footballer) {
+		this.footballers.add(footballer);
+		return this.footballers.get(this.footballers.size() - 1);
 
 	}
 
 	@Override
-	public Footballer update(int id, String firstname, String surname, Integer age, String position, Long phonenumber) {
-		Footballer toUpdate = this.ballers.get(id);
-		if (firstname != null)
-			toUpdate.setFirstname(firstname);
-		if (surname != null)
-			toUpdate.setSurname(surname);
-		if (age != null)
-			toUpdate.setAge(age);
+	public Footballer update(int id, String name, String position, String email, Integer age) {
+		Footballer toUpdate = this.footballers.get(id);
+		if (name != null)
+			toUpdate.setName(name);
 		if (position != null)
 			toUpdate.setPosition(position);
-		if (phonenumber != null)
-			toUpdate.setPhonenumber(phonenumber);
+		if (email != null)
+			toUpdate.setEmail(email);
+		if (age != null)
+			toUpdate.setAge(age);
 		return toUpdate;
 	}
 
 	@Override
 	public void delete(int id) {
-		this.ballers.remove(id);
+		this.footballers.remove(id);
 	}
 
 	@Override
-	public Footballer findByName(String firstname) {
+	public Footballer findByName(String name) {
 		return null;
 	}
 

@@ -11,11 +11,11 @@ public interface FootballerService {
 
 	List<Footballer> getAll();
 
-	Footballer findByName(String firstname);
+	Footballer findByName(String name);
 
-	Footballer create(Footballer baller);
+	Footballer create(Footballer footballer);
 
-	Footballer update(int id, String firstname, String surname, Integer age, String position, Long phonenumber);
+	Footballer update(int id, String name, String position, String email, Integer age);
 
 	void delete(int id);
 

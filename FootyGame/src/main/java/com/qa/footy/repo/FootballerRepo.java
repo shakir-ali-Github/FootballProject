@@ -8,6 +8,6 @@ import com.qa.footy.entity.Footballer;
 @Repository
 public interface FootballerRepo extends JpaRepository<Footballer, Integer>{
 	
-	 Footballer findByNameStartingWithIgnoreCase(String firstname);
+	 Footballer findByNameStartingWithIgnoreCase(String name);
 
 }
