@@ -1,7 +1,7 @@
 INSERT INTO `footballer` (
 	
 	`age`,
-	`footballer_name`,
+	`name`,
 	`position`,
 	`email`
 ) 

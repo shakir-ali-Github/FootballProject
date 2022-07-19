@@ -83,24 +83,7 @@ public class Footballer {
 		this.age = age;
 	}
 
-	@Override
-	public int hashCode() {
-		return Objects.hash(age, email, id, name, position);
-	}
-
-	@Override
-	public boolean equals(Object obj) {
-		if (this == obj)
-			return true;
-		if (obj == null)
-			return false;
-		if (getClass() != obj.getClass())
-			return false;
-		Footballer other = (Footballer) obj;
-		return age == other.age && Objects.equals(email, other.email) && Objects.equals(id, other.id)
-				&& Objects.equals(name, other.name) && Objects.equals(position, other.position);
-	}
-
+	
 	@Override
 	public String toString() {
 		return "Footballer [id=" + id + ", name=" + name + ", position=" + position + ", email=" + email + ", age="

@@ -53,24 +53,24 @@ public class FootballerControllerIntegreationTest {
 		this.mvc.perform(req).andExpect(checkStatus).andExpect(checkBody);
 	}
 	
-//	@Test
-//	void testRead() throws Exception {
-//		List<Footballer> footballers = List.of(new Footballer(1, "Scott", "CentreMid", "Scott@email.com", 23));
-//		this.mvc.perform(get("/getFootballers")).andExpect(status().isOk())
-//				.andExpect(content().json(this.mapper.writeValueAsString(footballers)));
-//	}
-//
-//	@Test
-//	void testUpdate() throws Exception {
-//		Footballer updated = new Footballer(1, "James", "CentreMid", "James@email.com", 21);
-//		this.mvc.perform(patch("/updateFootballer/1?name=James&position=CentreMid&email=James@email.com&age=21")).andExpect(status().isOk())
-//				.andExpect(content().json(this.mapper.writeValueAsString(updated)));
-//	}
-//
-//	@Test
-//	void testDelete() throws Exception {
-//		this.mvc.perform(delete("/removeFootballer/1")).andExpect(status().isNoContent());
-//	}
+	@Test
+	void testRead() throws Exception {
+		List<Footballer> footballers = List.of(new Footballer(1, "Scott", "CentreMid", "Scott@email.com", 23));
+		this.mvc.perform(get("/getFootballers")).andExpect(status().isOk())
+				.andExpect(content().json(this.mapper.writeValueAsString(footballers)));
+	}
+
+	@Test
+	void testUpdate() throws Exception {
+		Footballer updated = new Footballer(1, "James", "CentreMid", "James@email.com", 21);
+		this.mvc.perform(patch("/updateFootballer/1?name=James&position=CentreMid&email=James@email.com&age=21")).andExpect(status().isOk())
+				.andExpect(content().json(this.mapper.writeValueAsString(updated)));
+	}
+
+	@Test
+	void testDelete() throws Exception {
+		this.mvc.perform(delete("/removeFootballer/1")).andExpect(status().isNoContent());
+	}
 
 
 }
