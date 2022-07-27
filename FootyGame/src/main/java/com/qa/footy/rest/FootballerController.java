@@ -57,6 +57,22 @@ public class FootballerController {
 
 	@PatchMapping("/updateFootballer/{id}")
 	public Footballer update(@PathVariable("id") int id, @PathParam("name") String name, @PathParam("position") String position, @PathParam("email") String email, @PathParam("age") Integer age) {
+		 Footballer existing = getById(id);
+
+	        if (existing != null) {
+
+	            if ("".equals(name)) {
+	                name = existing.getName();
+	            }
+
+	            if ("".equals(position)) {
+	                position = existing.getPosition();
+	            }
+
+	            if ("".equals(email)) {
+	                email = existing.getEmail();
+	            }
+	        }
 		return this.service.update(id, name, position, email, age);
 	}
 
