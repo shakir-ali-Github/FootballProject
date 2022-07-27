@@ -61,13 +61,15 @@ function renderFootballers() {
 
                 const footballerUpdate = document.createElement('button');
                 footballerUpdate.innerText = "UPDATE";
-                footballerUpdate.classList.add("btn", "btn-secondary");
+                footballerUpdate.classList.add("btn", "btn-secondary", "m-2");
                 footballerUpdate.addEventListener("click", () => {
-                    console.log();
-                    updateFootballer(footballer.id);
+                    if (confirm('Are you sure?')) {
+                        console.log(updateFootballer(footballer.id));
+                    } else {
+                        console.log("You pressed cancel");
+                    }
                 });
                 
-
                 footballerDiv.appendChild(footballerUpdate);
 
                 output.appendChild(footballerCol);
@@ -76,8 +78,11 @@ function renderFootballers() {
                 footballerDelete.innerText = "DELETE";
                 footballerDelete.classList.add("btn", "btn-danger");
                 footballerDelete.addEventListener("click", () => {
-                    console.log("FOOTBALLER: ", footballer);
-                    deleteFootballer(footballer.id);
+                    if (confirm('Are you sure?')) {
+                        console.log(deleteFootballer(footballer.id));
+                    } else {
+                        console.log("You pressed cancel");
+                    }
                 });
 
                 footballerDiv.appendChild(footballerDelete);
